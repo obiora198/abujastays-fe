@@ -46,7 +46,7 @@ export default function HotelCard({ hotel }: { hotel: any }) {
             <span className="text-sm text-gray-500">/night</span>
           </div>
           <Link
-            href={`/hotels/${hotel._id}`}
+            href={`/hotels/${hotel.id}`}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center"
           >
             View Details

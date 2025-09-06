@@ -20,13 +20,13 @@ export const GET_REVIEWS_BY_PROPERTY = gql`
 export const GET_PROPERTY_DETAILS = gql`
   query Property($id: ID!) {
     property(id: $id) {
-      _id
+      id
       name
       location
       images
       pricePerNight
       reviews {
-        _id
+        id
         rating
         comment
         createdAt
