@@ -1,4 +1,4 @@
-# Abuja Booking App
+# Abuja Stays App
 
 A modern hotel booking platform built with Next.js 15, Apollo GraphQL, and Node.js.
 
