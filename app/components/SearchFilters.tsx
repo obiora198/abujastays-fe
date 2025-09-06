@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import SuspenseBoundary from "./SuspenseBoundary";
 
-export default function SearchFilters() {
+function SearchFiltersContent() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -99,4 +100,12 @@ export default function SearchFilters() {
       </div>
     </div>
   );
+}
+
+export default function SearchFilters() {
+  return (
+    <SuspenseBoundary >
+      <SearchFiltersContent />
+    </SuspenseBoundary>
+  )
 }

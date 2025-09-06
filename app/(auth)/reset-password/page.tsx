@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import SuspenseBoundary from '@/app/components/SuspenseBoundary'
 
-export default function ResetPasswordPage() {
+function ResetPassword() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
@@ -138,3 +139,11 @@ export default function ResetPasswordPage() {
     </div>
   )
 } 
+
+export default function ResetPasswordPage() {
+  return (
+    <SuspenseBoundary >
+      <ResetPassword />
+    </SuspenseBoundary>
+  )
+}

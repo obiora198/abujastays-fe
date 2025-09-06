@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useSearchParams } from 'next/navigation'
+import SuspenseBoundary from '@/app/components/SuspenseBoundary'
 
-export default function VerifyEmailPage() {
+function VerifyEmail() {
   const [otp, setOtp] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
@@ -90,5 +91,13 @@ export default function VerifyEmailPage() {
         </button>
       </div>
     </div>
+  )
+}
+
+export default function VerifyEmailPage() {
+  return (
+    <SuspenseBoundary >
+      <VerifyEmail />
+    </SuspenseBoundary>
   )
 }

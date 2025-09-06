@@ -9,8 +9,9 @@ import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useSearchParams } from "next/navigation";
+import SuspenseBoundary from "../components/SuspenseBoundary";
 
-export default function HotelsPage() {
+function HotelsPageContent() {
   const searchParams = useSearchParams();
   const location = searchParams.get('location') || "Abuja";
   const maxPrice = searchParams.get('maxPrice') || undefined;
@@ -95,4 +96,12 @@ export default function HotelsPage() {
       <Footer />
     </div>
   );
+}
+
+export default function HotelsPage() {
+  return (
+    <SuspenseBoundary >
+      <HotelsPageContent />
+    </SuspenseBoundary>
+  )
 }

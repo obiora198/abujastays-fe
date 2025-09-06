@@ -8,8 +8,9 @@ import { useToast } from '../../../context/ToastContext';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SuspenseBoundary from '@/app/components/SuspenseBoundary';
 
-export default function PaymentVerificationPage() {
+function PaymentVerification() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [verifyPayment, { loading }] = useMutation(VERIFY_PAYMENT);
@@ -158,3 +159,11 @@ export default function PaymentVerificationPage() {
     </div>
   );
 } 
+
+export default function PaymentVerificationPage() {
+  return (
+    <SuspenseBoundary >
+      <PaymentVerification />
+    </SuspenseBoundary>
+  )
+}
